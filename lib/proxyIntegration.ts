@@ -132,7 +132,7 @@ export const process: ProcessMethod<ProxyIntegrationConfig, APIGatewayProxyEvent
         paths: undefined
       }
 
-      const proxyEvent: ProxyIntegrationEvent = event
+      const proxyEvent: ProxyIntegrationEvent = event as ProxyIntegrationEvent<any>
 
       proxyEvent.paths = actionConfig.paths
       proxyEvent.routePath = actionConfig.routePath
@@ -267,7 +267,7 @@ const extractPathNames = (pathExpression: string) => {
   return pathNames && pathNames.length > 0 ? pathNames.slice(1) : null
 }
 
-const isLocalExecution = (event: ProxyIntegrationEvent) => {
+const isLocalExecution = (event: APIGatewayProxyEvent) => {
   return event.headers
     && event.headers.Host
     && (event.headers.Host.startsWith('localhost') || event.headers.Host.startsWith('127.0.0.1'))

@@ -5,6 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "prepare": "npm run build",
     "test": "yarn clean && jest --coverage",
     "build": "tsc",
     "clean": "rm -f lib/*.d.ts lib/*.js index.js index.d.ts"
@@ -39,5 +40,9 @@
   },
   "dependencies": {
     "@types/aws-lambda": "8.10.66"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }

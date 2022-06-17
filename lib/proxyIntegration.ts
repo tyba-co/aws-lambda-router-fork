@@ -271,5 +271,5 @@ const isLocalExecution = (event: APIGatewayProxyEvent) => {
   return event.headers
     && event.headers.Host
     // Added ngrok support
-    && (event.headers.Host.startsWith('localhost') || event.headers.Host.startsWith('127.0.0.1') || event.headers.Host.split('.')?.[1] === 'ngrok'))
+    && (event.headers.Host.startsWith('localhost') || event.headers.Host.startsWith('127.0.0.1') || event.headers.Host.split('.')?.[1] === 'ngrok')
 }

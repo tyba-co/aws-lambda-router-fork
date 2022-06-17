@@ -141,7 +141,7 @@ export const process: ProcessMethod<ProxyIntegrationConfig, APIGatewayProxyEvent
           proxyEvent.rawBody = event.body
           proxyEvent.body = JSON.parse(event.body)
         } catch (parseError) {
-          console.log(`Could not parse body as json: ${event.body}`, parseError)
+          console.log(`Body is not a json`, parseError)
         }
       }
       return processActionAndReturn(actionConfig, proxyEvent, context, headers).catch(async (error) => {
@@ -270,5 +270,6 @@ const extractPathNames = (pathExpression: string) => {
 const isLocalExecution = (event: APIGatewayProxyEvent) => {
   return event.headers
     && event.headers.Host
-    && (event.headers.Host.startsWith('localhost') || event.headers.Host.startsWith('127.0.0.1'))
+    // Added ngrok support
+    && (event.headers.Host.startsWith('localhost') || event.headers.Host.startsWith('127.0.0.1') || event.headers.Host.split('.')?.[1] === 'ngrok'))
 }

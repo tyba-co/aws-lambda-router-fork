@@ -1,5 +1,5 @@
 {
-  "name": "@sflorezs/aws-lambda-router",
+  "name": "@tyba-open/aws-lambda-router",
   "version": "0.11.0",
   "description": "AWS lambda router",
   "main": "index.js",
@@ -45,7 +45,7 @@
     "lib": "lib",
     "test": "test"
   },
-  "publishConfig":{
-    "@sflorezs:registry": "https://gitlab.com/api/v4/projects/37093478/packages/npm/"
+  "publishConfig": {
+    "@tyba-open:registry": "https://gitlab.com/api/v4/projects/37093478/packages/npm/"
   }
 }

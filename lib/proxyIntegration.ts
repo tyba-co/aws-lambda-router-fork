@@ -136,14 +136,13 @@ export const process: ProcessMethod<ProxyIntegrationConfig, APIGatewayProxyEvent
 
       proxyEvent.paths = actionConfig.paths
       proxyEvent.routePath = actionConfig.routePath
-      const isJson = proxyEvent.headers['Content-Type'] && proxyEvent.headers['Content-Type'].toUpperCase() === 'APPLICATION/JSON'
-      if (event.body && !isJson) {
-        proxyEvent.rawBody = proxyEvent.body
-      } else if (event.body) {
+      if (event.body) {
         try {
           proxyEvent.body = JSON.parse(event.body)
         } catch (parseError) {
           console.log(`Body is not a json`, parseError)
+          console.log(`rawBody has been set with the unparsed body`)
+          proxyEvent.rawBody = proxyEvent.body
         }
       }
       return processActionAndReturn(actionConfig, proxyEvent, context, headers).catch(async (error) => {

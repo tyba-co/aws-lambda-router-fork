@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spring-media/aws-lambda-router.git"
+    "url": "git+https://github.com/tyba-co/aws-lambda-router-fork.git"
   },
   "keywords": [
     "aws",
@@ -27,9 +27,9 @@
   "author": "Christian Gohlke <christian.gohlke@axelspringer.com> (https://www.welt.de)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/spring-media/aws-lambda-router/issues"
+    "url": "https://github.com/tyba-co/aws-lambda-router-fork/issues"
   },
-  "homepage": "https://github.com/spring-media/aws-lambda-router#readme",
+  "homepage": "https://github.com/tyba-co/aws-lambda-router-fork#readme",
   "devDependencies": {
     "@types/jest": "26.0.23",
     "@types/node": "^8.10.59",
@@ -40,6 +40,9 @@
   },
   "dependencies": {
     "@types/aws-lambda": "8.10.66"
+  },
+  "publishConfig": {
+    "@tyba-co:registry": "https://npm.pkg.github.com"
   },
   "directories": {
     "lib": "lib",

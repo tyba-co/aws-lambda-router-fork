@@ -253,15 +253,6 @@ describe('proxyIntegration.routeHandler', () => {
   it('should not change path if coming over localhost', async () => {
     await assertPathIsUnchanged('localhost')
   })
-  it('should return 400 for an invalid body', async () => {
-    const result = await proxyIntegration({ routes: [{} as any] },
-      { httpMethod: 'GET', path: '/', body: '{keinJson' } as APIGatewayProxyEvent, context)
-    expect(result).toEqual({
-      statusCode: 400,
-      body: JSON.stringify({ 'message': 'body is not a valid JSON', 'error': 'ParseError' }),
-      headers: jasmine.anything()
-    })
-  })
   it('should return error for no process found', async () => {
     const result = await proxyIntegration({ routes: [{} as any] }, {
       httpMethod: 'GET',

@@ -3,6 +3,8 @@ node_modules/
 coverage
 
 .editorconfig
+.github/
+.vscode/
 .gitignore
 .travis.yml
 jest.config.js
